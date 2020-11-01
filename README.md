@@ -38,7 +38,7 @@ On the server, usually in the middleware there are usually two steps:
 
        await loginserviceClient.validateJWT(jwt)
 
-  _Note: It is essential that you never pass the secret to the browser, or try to run this package in the client-side part of your application_.
+    _Note: It is essential that you never pass the secret to the browser, or try to run this package in the client-side part of your application_.
 
 3. If you wish to use the credentials contained within the JWT it can be decoded:
 
