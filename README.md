@@ -15,7 +15,7 @@ or
 
 ### Validating user credentials
 
-The Jason Web Token (JWT) from loginservice is usually passed to the backend as an HTTP header. For example:
+In the client-side code, the Jason Web Token (JWT) from loginservice is usually passed to the backend as an HTTP header. For example:
 
     const JWT = this.$loginservice.jwt // e.g. if using vue-loginservice
     const reply = await axios(url, {
@@ -25,7 +25,7 @@ The Jason Web Token (JWT) from loginservice is usually passed to the backend as 
       ...
     }
     
-On the server, usually in the middleware there are usually two steps:
+On the server, usually in the middleware, the JWT is used as credentials for the current user. This is usually done as several steps:
 
 1. Get the JWT from the HTTP request:
 
