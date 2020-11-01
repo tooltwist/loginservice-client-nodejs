@@ -4,16 +4,16 @@ This package provides a few useful functions for use in a NodeJS backend, workin
 
 
 
-### Installation
+## Installation
     npm install @tooltwist/loginservice-client --save
 
 or
 
     yarn add @tooltwist/loginservice-client
     
-### Usage
+## Usage
 
-#### Validating user credentials
+### Validating user credentials
 
 The Jason Web Token (JWT) from loginservice is usually passed to the backend as an HTTP header. For example:
 
@@ -45,7 +45,7 @@ On the server, usually in the middleware there are usually two steps:
        const credentials = loginserviceClient.decodeJWT(jwt)
     
 
-#### Sending Emails
+### Sending Emails
 
 Emails can be sent through the Loginservice API. The advantage of this approach is that Loginservice logs requests and can detect email sending problems.
 
@@ -54,7 +54,7 @@ This API call requires you Juice configuration to define `services.auth.url` and
     const result = await loginserviceClient.sendEmail(params, subject, fromEmail, fromName, toEmail, templateName)
 
 
-#### Registering users
+### Registering users
 
 Most applications allow users to sign up from their browser, but in some cases the application wants to take responsibility for signing up users. A typical case is an invitation-only business application where the administrator signs up users. In this case, the server-side of your application can use an API to add new users.
 
