@@ -35,10 +35,10 @@ On the server, usually in the middleware there are usually two steps:
 
 2. Verify that the token is valid. This step requires that you have a [Juice configuration](https://www.npmjs.com/package/@tooltwist/juice-client) that defines `services.auth.secret`, which is the private credentials provided by authservice. This function throw an exception if the token is invalid.
 
-_Note: It is essential that you never pass the secret to the browser, or try to run this package in the client-side part of your application_.
-
 
        await loginserviceClient.validateJWT(jwt)
+
+  _Note: It is essential that you never pass the secret to the browser, or try to run this package in the client-side part of your application_.
 
 3. If you wish to use the credentials contained within the JWT it can be decoded:
 
