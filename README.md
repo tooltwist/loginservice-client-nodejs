@@ -12,6 +12,7 @@ or
     yarn add @tooltwist/loginservice-client
     
 ## Usage
+These API calls require that you have a [Juice configuration](https://www.npmjs.com/package/@tooltwist/juice-client). In the configuration variables below, the prefix 'loginservice.' can be replaced by 'tooltwist.'.
 
 ### Validating user credentials
 
@@ -33,7 +34,7 @@ On the server, usually in the middleware, the JWT is used as credentials for the
     
        const jwt = loginserviceClient.getJWTFromAuthorization(req.headers['Authorization']
 
-2. Verify that the token is valid. This step requires that you have a [Juice configuration](https://www.npmjs.com/package/@tooltwist/juice-client) that defines `services.auth.secret`, which is the private credentials provided by authservice. This function throw an exception if the token is invalid.
+2. Verify that the token is valid. This step requires that you have a [Juice configuration](https://www.npmjs.com/package/@tooltwist/juice-client) that defines `loginservice.secret`, which is the private credentials provided by authservice. This function throw an exception if the token is invalid.
 
 
        await loginserviceClient.validateJWT(jwt)
@@ -49,7 +50,7 @@ On the server, usually in the middleware, the JWT is used as credentials for the
 
 Emails can be sent through the Loginservice API. The advantage of this approach is that Loginservice logs requests and can detect email sending problems.
 
-This API call requires you Juice configuration to define `services.auth.url` and `services.auth.apikey`.
+This API call requires you Juice configuration to define `loginservice.url` and `loginservice.apikey`.
 
     const result = await loginserviceClient.sendEmail(params, subject, fromEmail, fromName, toEmail, templateName)
 
@@ -65,6 +66,6 @@ Most applications allow users to sign up from their browser, but in some cases t
     }
     const success = await loginserviceClient.registerUser(user)
     
-This API requires you Juice configuration to define `services.auth.url`, `services.auth.apikey` and `services.auth.returnURL`.
+This API requires you Juice configuration to define `loginservice.url`, `loginservice.apikey` and `loginservice.returnURL`.
 
 
